@@ -64,6 +64,13 @@
       },
       "description": "__MSG_KbOpenSidebarPanel__"
     },
+    "loop_panels": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space",
+        "mac": "MacCtrl+Shift+Space"
+      },
+      "description": "__MSG_KbLoopPanels__"
+    },
     "next_panel": {
       "suggested_key": {
         "default": "Alt+Period"
@@ -84,10 +91,6 @@
       "description": "__MSG_KbOpenNewTabInCurrPanel__"
     },
     "new_tab_in_group": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+Space",
-        "mac": "MacCtrl+Shift+Space"
-      },
       "description": "__MSG_KbOpenNewTabAfter__"
     },
     "new_tab_as_first_child": {

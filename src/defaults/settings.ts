@@ -248,6 +248,7 @@ export const DEFAULT_SETTINGS: SettingsState = {
 
   // Keybindings
   selectActiveTabFirst: true,
+  ignoreHiddenPanelsSwitching: false,
 }
 
 // prettier-ignore

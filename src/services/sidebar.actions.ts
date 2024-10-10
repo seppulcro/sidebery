@@ -1264,7 +1264,8 @@ export function switchPanel(
   dir: 1 | -1,
   ignoreHidden?: boolean,
   withoutTabCreation?: boolean,
-  restartDebouncer?: boolean
+  restartDebouncer?: boolean,
+  shouldLoop?: boolean
 ): void {
   // Single panel switch
   const delay = Settings.state.navSwitchPanelsDelay ?? 128
@@ -1285,7 +1286,6 @@ export function switchPanel(
   Selection.resetSelection()
 
   const activePanelId = Sidebar.activePanelId
-
   // If current active panel is not exist
   let activePanel = Sidebar.panelsById[activePanelId]
   if (!activePanel) {
@@ -1350,6 +1350,7 @@ export function switchPanel(
           else panel = hiddenPanels[hiddenPanels.length - 1]
           newActIsHidden = true
         }
+        if (shouldLoop && ignoreHidden) panel = visiblePanels[0]
         break
       }
       if (!panel) break
@@ -1363,9 +1364,10 @@ export function switchPanel(
       if (!panel) {
         if (visiblePanels.length) {
           panel = visiblePanels[dir > 0 ? hdnIndex : hdnIndex - 1]
-          if (!panel) break
+          if (!panel && !shouldLoop) break
           if (hiddenPanelsPopupIsShown) Sidebar.reactive.hiddenPanelsPopup = false
           newActIsHidden = false
+          if (shouldLoop) panel = visiblePanels[0]
         }
         break
       }

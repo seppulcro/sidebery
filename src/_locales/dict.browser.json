@@ -93,6 +93,9 @@
     "zh_TW": "切換到下一個面板",
     "ja": "次のパネルに切り替え"
   },
+  "KbLoopPanels": {
+    "en": "Loop trough all panels"
+  },
   "KbPrevPanel": {
     "en": "Switch to previous panel",
     "de": "Zum vorherigen Panel wechseln",

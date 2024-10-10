@@ -251,4 +251,5 @@ export interface SettingsState {
 
   // Keybindings
   selectActiveTabFirst: boolean
+  ignoreHiddenPanelsSwitching: boolean
 }
