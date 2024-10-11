@@ -1334,13 +1334,22 @@ export function switchPanel(
       }
     }
   }
-
   if (actIndex === -1) return
   if (hdnIndex === -1 || isInline) hdnIndex = visiblePanels.length
 
   let panel
   if (!actIsHidden) {
     for (let i = actIndex + dir; i >= 0 || i < visiblePanels.length; i += dir) {
+      if (shouldLoop && dir < 0 && actIndex === 0) {
+        if (ignoreHidden) {
+          panel = visiblePanels[visiblePanels.length - 1]
+          newActIsHidden = false
+        } else {
+          panel = hiddenPanels[hiddenPanels.length - 1]
+          newActIsHidden = true
+        }
+        break
+      }
       panel = visiblePanels[i]
       newActIsHidden = false
       if ((dir > 0 && i === hdnIndex) || (dir < 0 && i + 1 === hdnIndex)) {
@@ -1350,7 +1359,9 @@ export function switchPanel(
           else panel = hiddenPanels[hiddenPanels.length - 1]
           newActIsHidden = true
         }
-        if (shouldLoop && ignoreHidden) panel = visiblePanels[0]
+        if (shouldLoop && ignoreHidden) {
+          panel = visiblePanels[0]
+        }
         break
       }
       if (!panel) break
@@ -1367,7 +1378,7 @@ export function switchPanel(
           if (!panel && !shouldLoop) break
           if (hiddenPanelsPopupIsShown) Sidebar.reactive.hiddenPanelsPopup = false
           newActIsHidden = false
-          if (shouldLoop) panel = visiblePanels[0]
+          if (shouldLoop) panel = visiblePanels[dir > 0 ? 0 : visiblePanels.length - 1]
         }
         break
       }

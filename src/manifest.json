@@ -64,12 +64,19 @@
       },
       "description": "__MSG_KbOpenSidebarPanel__"
     },
-    "loop_panels": {
+    "loop_panels_forwards": {
       "suggested_key": {
-        "default": "Ctrl+Shift+Space",
-        "mac": "MacCtrl+Shift+Space"
+        "default": "Ctrl+Shift+D",
+        "mac": "MacCtrl+Shift+D"
       },
-      "description": "__MSG_KbLoopPanels__"
+      "description": "__MSG_KbLoopPanelsForwards__"
+    },
+    "loop_panels_backwards": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "MacCtrl+Shift+A"
+      },
+      "description": "__MSG_KbLoopPanelsBackwards__"
     },
     "next_panel": {
       "suggested_key": {
@@ -91,6 +98,10 @@
       "description": "__MSG_KbOpenNewTabInCurrPanel__"
     },
     "new_tab_in_group": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space",
+        "mac": "MacCtrl+Shift+Space"
+      },
       "description": "__MSG_KbOpenNewTabAfter__"
     },
     "new_tab_as_first_child": {
